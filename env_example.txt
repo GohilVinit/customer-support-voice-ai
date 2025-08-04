@@ -1,15 +1,11 @@
-# Enhanced Customer Support Call Analysis System - Environment Variables
-# Copy this file to .env and fill in your API keys
+# Environment Variables for Customer Support Voice Analytics System
+# Copy this file to .env and fill in your actual values
 
 # =============================================================================
 # REQUIRED API KEYS
 # =============================================================================
 
-# OpenAI API Key - Required for speech-to-text transcription
-# Get from: https://platform.openai.com/api-keys
-OPENAI_API_KEY=your_openai_api_key_here
-
-# Google Gemini API Key - Required for chat/completion and insights extraction
+# Google Gemini API Key (Required for chat/completion and embeddings)
 # Get from: https://makersuite.google.com/app/apikey
 GEMINI_API_KEY=your_gemini_api_key_here
 
@@ -17,118 +13,62 @@ GEMINI_API_KEY=your_gemini_api_key_here
 # OPTIONAL API KEYS
 # =============================================================================
 
-# Hugging Face Token - Optional for speaker diarization
-# Get from: https://huggingface.co/settings/tokens
-# Required for: Speaker separation in customer support calls
-HF_TOKEN=your_huggingface_token_here
-
-# MeetingBaas API Key - Optional for meeting recording
-# Get from: https://meetingbaas.com/
-# Required for: Live meeting recording and transcription
+# MeetingBaas API Key (Optional - for meeting recording)
+# Get from: https://meetingbaas.com
 MEETINGBAAS_API_KEY=your_meetingbaas_api_key_here
 
-# =============================================================================
-# GOOGLE DRIVE INTEGRATION (OPTIONAL)
-# =============================================================================
+# Hugging Face Token (Optional - for speaker diarization)
+# Get from: https://huggingface.co/settings/tokens
+HF_TOKEN=your_hf_token_here
 
-# Google Drive credentials file path
-# Download from: https://console.cloud.google.com/apis/credentials
-GOOGLE_APPLICATION_CREDENTIALS=path_to_your_credentials.json
+# Google Drive API Credentials (Optional - for file uploads)
+# Download credentials.json from Google Cloud Console
+GOOGLE_APPLICATION_CREDENTIALS=credentials.json
 
 # =============================================================================
 # SYSTEM CONFIGURATION
 # =============================================================================
 
-# Memory management threshold (percentage)
-# Default: 80 (for 4GB RAM systems)
+# Memory Management (for 4GB RAM systems)
 MEMORY_THRESHOLD=80
 
-# Upload folder for temporary files
+# File Upload Settings
 UPLOAD_FOLDER=./uploads
+MAX_CONTENT_LENGTH=500000000
 
-# Vector store path
+# Vector Store Settings
 VECTORSTORE_PATH=./unified_vectorstore
 
-# =============================================================================
-# ANALYSIS CONFIGURATION
-# =============================================================================
+# Local Whisper Configuration
+WHISPER_MODEL_SIZE=tiny
+WHISPER_DEVICE=cpu
 
-# Enable/disable analysis components (true/false)
+# Feature Flags
 ENABLE_DIARIZATION=true
 ENABLE_INSIGHTS=true
 ENABLE_SUMMARY=true
 ENABLE_EVALUATION=true
 ENABLE_AGENT_ANALYSIS=true
 
-# =============================================================================
-# LOGGING CONFIGURATION
-# =============================================================================
-
-# Log level (DEBUG, INFO, WARNING, ERROR)
+# Logging and Debug
 LOG_LEVEL=INFO
-
-# =============================================================================
-# SERVER CONFIGURATION
-# =============================================================================
-
-# Flask server host
 HOST=0.0.0.0
-
-# Flask server port
 PORT=5000
-
-# Debug mode (true/false)
 DEBUG=false
 
 # =============================================================================
-# NOTES
+# CLEAN TEMPLATE (Copy this section to your .env file)
 # =============================================================================
 
-# 1. OPENAI_API_KEY is required for speech-to-text transcription
-# 2. GEMINI_API_KEY is required for all AI analysis features
-# 3. HF_TOKEN is optional but recommended for speaker diarization
-# 4. MEETINGBAAS_API_KEY is optional for live meeting recording
-# 5. Memory threshold can be adjusted based on your system's RAM
-# 6. Analysis components can be enabled/disabled as needed
-
-# =============================================================================
-# EXAMPLE CONFIGURATION FOR 4GB RAM SYSTEM
-# =============================================================================
-
-# For systems with 4GB RAM, use these settings:
-# MEMORY_THRESHOLD=80
-# ENABLE_DIARIZATION=true
-# ENABLE_INSIGHTS=true
-# ENABLE_SUMMARY=true
-# ENABLE_EVALUATION=true
-# ENABLE_AGENT_ANALYSIS=true
-
-# =============================================================================
-# EXAMPLE CONFIGURATION FOR 8GB+ RAM SYSTEM
-# =============================================================================
-
-# For systems with 8GB+ RAM, you can use more aggressive settings:
-# MEMORY_THRESHOLD=85
-# ENABLE_DIARIZATION=true
-# ENABLE_INSIGHTS=true
-# ENABLE_SUMMARY=true
-# ENABLE_EVALUATION=true
-# ENABLE_AGENT_ANALYSIS=true
-
-# =============================================================================
-# CLEAN .ENV TEMPLATE (COPY BELOW)
-# =============================================================================
-
-# Copy everything below this line to your .env file and fill in your values
-
-OPENAI_API_KEY=your_openai_api_key_here
-GEMINI_API_KEY=your_gemini_api_key_here
-HF_TOKEN=your_huggingface_token_here
-MEETINGBAAS_API_KEY=your_meetingbaas_api_key_here
-GOOGLE_APPLICATION_CREDENTIALS=path_to_your_credentials.json
+GEMINI_API_KEY=
+MEETINGBAAS_API_KEY=
+HF_TOKEN=
+GOOGLE_APPLICATION_CREDENTIALS=credentials.json
 MEMORY_THRESHOLD=80
 UPLOAD_FOLDER=./uploads
 VECTORSTORE_PATH=./unified_vectorstore
+WHISPER_MODEL_SIZE=tiny
+WHISPER_DEVICE=cpu
 ENABLE_DIARIZATION=true
 ENABLE_INSIGHTS=true
 ENABLE_SUMMARY=true
