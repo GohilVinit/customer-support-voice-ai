@@ -3,8 +3,10 @@ Flask==2.3.3
 Flask-CORS==4.0.0
 python-dotenv==1.0.0
 
-# OpenAI for Whisper transcription
-openai>=1.3.7
+# Local Whisper for transcription (replacing OpenAI API)
+openai-whisper==20231117
+torch>=2.0.0
+torchaudio>=2.0.0
 
 # Google Generative AI for Gemini chat/completion and embeddings
 google-generativeai==0.3.2
